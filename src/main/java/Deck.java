@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 public class Deck {
 
@@ -8,6 +9,7 @@ public class Deck {
     public Deck(){
         deckBuilder();
     }
+
 
     private void deckBuilder(){
         ArrayList<String> suits = new ArrayList<>(Arrays.asList("Heart", "Clubs", "Spades", "Diamonds"));
@@ -20,8 +22,18 @@ public class Deck {
             }
         }
 
-        System.out.println(deck.size());
+        System.out.println("Hello" + deck.size());
 
+    }
+
+    public void printDetails() {
+        for (Card card: deck) {
+            card.printCardDetails();
+        }
+    }
+
+    public void shuffleDeck() {
+        Collections.shuffle(deck);
     }
 
 

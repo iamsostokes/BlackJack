@@ -57,6 +57,7 @@ public class Card {
         return card;
     }
 
+
     public void printCardDetails() {
         System.out.println(getRank() + " of " + getSuit() + "\n");
     }
