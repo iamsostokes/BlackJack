@@ -1,23 +1,44 @@
-import java.util.ArrayList;
+import java.util.Scanner;
 
 public class BlackJackDemo {
+
+
     public static void main(String[] args) {
 
         Dealer dealer = new Dealer();
-        dealer.printDetails();
+        MenuBuilder menu = new MenuBuilder();
+        BankAndScoreKeeper bankAndScoreKeeper = new BankAndScoreKeeper();
+        Scanner textScanner = new Scanner(System.in);
+        Scanner numberScanner = new Scanner(System.in);
+        String userTextInput;
+        int userNumberInput;
 
-        System.out.println("_______________________________________________");
+        menu.showMainMenu();
+        userNumberInput = numberScanner.nextInt();
 
-        dealer.giveDealerACard();
-        System.out.println("_______________________________________________");
-
-        dealer.printDealerHand();
-
-        System.out.println("_______________________________________________");
-
+        switch (userNumberInput) {
+            case 1:
+                menu.placeBet();
+                userNumberInput = numberScanner.nextInt();
+                bankAndScoreKeeper.addToPlayerBank(userNumberInput);
 
 
-        dealer.printDetails();
+
+                break;
+
+            case 2:
+                bankAndScoreKeeper.printPlayerBankAmount();
+                break;
+
+            case 3:
+                menu.exitGame();
+                break;
+
+
+            default:
+                break;
+        }
+
 
     }
 

@@ -21,9 +21,6 @@ public class Deck {
                 deck.add(card);
             }
         }
-
-        System.out.println("Hello" + deck.size());
-
     }
 
     public Card getAndRemoveFirstCardFromDeck() {

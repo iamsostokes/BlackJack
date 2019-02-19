@@ -8,5 +8,15 @@ public class MenuBuilder {
 
     }
 
+    public void placeBet(){
+        System.out.println("Welcome to the game! \n " +
+                " Enter the number you would like to bet: ");
+    }
+
+    public void exitGame(){
+        System.out.println("Thanks for playing!");
+    }
+
+
 
 }
