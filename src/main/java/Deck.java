@@ -26,11 +26,13 @@ public class Deck {
 
     }
 
-    public void printDetails() {
-        for (Card card: deck) {
-            card.printCardDetails();
-        }
+    public Card getAndRemoveFirstCardFromDeck() {
+        Card firstCard =  deck.get(0);
+        deck.remove(0);
+        return firstCard;
     }
+
+
 
     public void shuffleDeck() {
         Collections.shuffle(deck);

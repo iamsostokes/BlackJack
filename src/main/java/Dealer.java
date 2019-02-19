@@ -2,14 +2,12 @@ import java.util.ArrayList;
 
 public class Dealer {
 
+    Deck deck = new Deck();
+
     private ArrayList<Card> dealersHand = new ArrayList<>();
 
-    public Card giveDealerACard(Deck deck){
-        Card card1 = deck.getDeck().get(0);
-        dealersHand.add(card1);
-        deck.getDeck().remove(0);
-        return card1;
-
+    public void giveDealerACard(){
+        dealersHand.add(deck.getAndRemoveFirstCardFromDeck());
     }
 
     public void printDealerHand() {
@@ -17,6 +15,12 @@ public class Dealer {
 
             dealerCard.printCardDetails();
 
+        }
+    }
+
+    public void printDetails() {
+        for (Card card: deck.getDeck()) {
+            card.printCardDetails();
         }
     }
 
