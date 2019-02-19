@@ -6,7 +6,7 @@ public class Dealer {
 
     private ArrayList<Card> dealersHand = new ArrayList<>();
 
-    public void dealACard(){
+    public void dealACardtoDealer(){
         dealersHand.add(deck.getAndRemoveFirstCardFromDeck());
     }
 

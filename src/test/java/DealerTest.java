@@ -4,6 +4,8 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 import static org.junit.Assert.*;
+import static org.hamcrest.core.IsEqual.equalTo;
+
 
 public class DealerTest {
 
@@ -12,17 +14,20 @@ public class DealerTest {
     private Dealer dealer;
 
     @Before
-    public void create() { dealer = new Dealer();
-    card
+    public void create() {
+        dealer = new Dealer();
 
+    }
 
     @Test
-    public void giveDealerACard() {
+    public void dealACardtoDealer() {
+        ArrayList<Card> result = dealer.getDealersHand();
 
-        ArrayList<Card> cards = new ArrayList<>();
-        cards.add(cards);
+        assertThat(result.size(), equalTo(0));
 
+        dealer.dealACardtoDealer();
 
+        assertThat(result.size(), equalTo(2));
 
     }
 }
