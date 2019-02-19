@@ -1,9 +1,9 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Dealer {
 
     private Deck deck = new Deck();
-    private Player player = new Player();
 
     private ArrayList<Card> dealersHand = new ArrayList<>();
 
@@ -12,21 +12,25 @@ public class Dealer {
         dealersHand.add(deck.getAndRemoveFirstCardFromDeck());
     }
 
-    public void addToPlayersHand(){
-        player.getPlayersHand().add(deck.getAndRemoveFirstCardFromDeck());
+    public void addToPlayersHand(Player player){
+      player.addToPlayersHand(deck.getAndRemoveFirstCardFromDeck());
 
     }
 
 
     public void printDealerHand() {
+        System.out.println("Dealers Hand:");
         for (Card dealerCard: dealersHand) {
-
             dealerCard.printCardDetails();
 
         }
     }
 
-    public void printDetails() {
+    public void shuffleDeck() {
+        Collections.shuffle(deck.getDeck());
+    }
+
+    public void printDeckDetails() {
         for (Card card: deck.getDeck()) {
             card.printCardDetails();
         }

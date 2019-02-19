@@ -4,7 +4,12 @@ public class Player {
 
     private ArrayList<Card> playersHand = new ArrayList<>();
 
+    public void addToPlayersHand(Card card){
+        playersHand.add(card);
+    }
+
     public void printPlayersHand(){
+        System.out.println("Your hand: ");
         for(Card playerCard:playersHand){
             playerCard.printCardDetails();
         }
