@@ -28,6 +28,8 @@ public class BlackJackDemo {
 
             case 2:
                 bankAndScoreKeeper.printPlayerBankAmount();
+
+
                 break;
 
             case 3:

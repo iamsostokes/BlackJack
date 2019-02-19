@@ -25,7 +25,7 @@ public class DealerTest {
 
         assertThat(result.size(), equalTo(0));
 
-        dealer.dealACardtoDealer();
+        dealer.addToDealerHand();
 
         assertThat(result.size(), equalTo(2));
 

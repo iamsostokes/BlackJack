@@ -2,13 +2,21 @@ import java.util.ArrayList;
 
 public class Dealer {
 
-    Deck deck = new Deck();
+    private Deck deck = new Deck();
+    private Player player = new Player();
 
     private ArrayList<Card> dealersHand = new ArrayList<>();
 
-    public void dealACardtoDealer(){
+
+    public void addToDealerHand(){
         dealersHand.add(deck.getAndRemoveFirstCardFromDeck());
     }
+
+    public void addToPlayersHand(){
+        player.getPlayersHand().add(deck.getAndRemoveFirstCardFromDeck());
+
+    }
+
 
     public void printDealerHand() {
         for (Card dealerCard: dealersHand) {
