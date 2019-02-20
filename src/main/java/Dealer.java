@@ -28,33 +28,42 @@ public class Dealer {
 
     }
 
-    public int compareHandTotalsReturnMax(Player player){
-        ArrayList<Integer> bothHandTotals = new ArrayList<>();
-        bothHandTotals.add(calculateCardValueInDealerHand());
-        bothHandTotals.add(player.calculateCardValueInPlayerHand());
-
-        if (calculateCardValueInDealerHand() > player.calculateCardValueInPlayerHand()){
-            System.out.println("Dealer hand is greater");
-        }else {
-            System.out.println("Your hand is greater");
-        }
-
-       return Collections.max(bothHandTotals);
-
-    }
+//    public int compareHandTotalsReturnMax(Player player){
+//        ArrayList<Integer> bothHandTotals = new ArrayList<>();
+//        bothHandTotals.add(calculateCardValueInDealerHand());
+//        bothHandTotals.add(player.calculateCardValueInPlayerHand());
+//
+//        if (calculateCardValueInDealerHand() > player.calculateCardValueInPlayerHand()){
+//            System.out.println("Dealer hand is greater");
+//        }else {
+//            System.out.println("Your hand is greater");
+//        }
+//
+//       return Collections.max(bothHandTotals);
+//
+//    }
 
     public void hitMePlayer(Player player){
         addToPlayersHand(player);
         player.printPlayersHand();
         System.out.println("Your total is now " + player.calculateCardValueInPlayerHand());
-        System.out.println("The Dealer total is " + calculateCardValueInDealerHand());
+        System.out.println("The Dealer total is " + calculateCardValueInDealerHand() + "\n");
 
+    }
+
+    public void dealerGetsNewCards(){
+        addToDealerHand();
+        printDealerHand();
+        System.out.println("");
+        while (calculateCardValueInDealerHand() <= 16){
+            addToDealerHand();
+        }
     }
 
 
 
     public void printDealerHand() {
-        System.out.println("Dealers Hand:");
+        System.out.println("\nDealers Hand:");
         for (Card dealerCard: dealersHand) {
             dealerCard.printCardDetails();
         }

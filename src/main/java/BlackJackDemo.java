@@ -14,62 +14,84 @@ public class BlackJackDemo {
         String userTextInput;
         int userNumberInput;
         boolean hitMe = false;
+        boolean playAgain = false;
 
         menu.showMainMenu();
         userNumberInput = numberScanner.nextInt();
 
-        switch (userNumberInput) {
-            case 1:
-                menu.placeBet();
-                userNumberInput = numberScanner.nextInt();
-                bankAndScoreKeeper.addToPlayerBank(userNumberInput);
+        do {
+            switch (userNumberInput) {
+                case 1:
+                    menu.placeBet();
+                    userNumberInput = numberScanner.nextInt();
+                    bankAndScoreKeeper.addToPlayerBank(userNumberInput);
 
-                dealer.shuffleDeck();
+                    dealer.shuffleDeck();
 
-                dealer.addToDealerHand();
-                dealer.printDealerHand();
-                dealer.calculateCardValueInDealerHand();
-                System.out.println("The dealer hand total is " + dealer.calculateCardValueInDealerHand() + "\n");
+                    dealer.addToDealerHand();
+                    dealer.printDealerHand();
+                    dealer.calculateCardValueInDealerHand();
+                    System.out.println("The dealer hand total is " + dealer.calculateCardValueInDealerHand() + "\n");
 
-                dealer.addToPlayersHand(player);
-                dealer.addToPlayersHand(player);
-                player.printPlayersHand();
-                System.out.println("Your hand total is " + player.calculateCardValueInPlayerHand() + "\n");
-
-
-                do {
-                    if (dealer.calculateCardValueInDealerHand() < 21 && player.calculateCardValueInPlayerHand() < 21) {
-                        menu.hitOrStand();
-                        userNumberInput = numberScanner.nextInt();
-
-                        if (userNumberInput == 1) {
-                            dealer.hitMePlayer(player);
-                            hitMe = false;
-
-                        } else {
-                            hitMe = true;
-                        }
-
-                    }
-
-                } while (hitMe);
-
-                break;
-
-            case 2:
-                bankAndScoreKeeper.printPlayerBankAmount();
-                break;
-
-            case 3:
-                menu.exitGame();
-                break;
+                    dealer.addToPlayersHand(player);
+                    dealer.addToPlayersHand(player);
+                    player.printPlayersHand();
+                    System.out.println("Your hand total is " + player.calculateCardValueInPlayerHand() + "\n");
 
 
-            default:
-                break;
-        }
+                    do {
+
+                            menu.hitOrStand();
+                            userNumberInput = numberScanner.nextInt();
+
+                            if (userNumberInput == 1 && player.calculateCardValueInPlayerHand() < 21) {
+                                dealer.hitMePlayer(player);
+                                hitMe = true;
+                            } else {
+                               hitMe = false;
+                            }
+
+                    } while (hitMe);
+
+                    dealer.dealerGetsNewCards();
+                    bankAndScoreKeeper.determineWins(player, dealer);
 
 
+
+                    playAgain = true;
+                    break;
+
+                case 2:
+                    break;
+
+                case 3:
+                    menu.exitGame();
+                    break;
+
+
+                default:
+                    break;
+            }
+
+            System.out.println("Would you like to go to main menu? \n" +
+                    "Press [1] Main Menu \n" +
+                    "Press [2] Exit");
+            userNumberInput = numberScanner.nextInt();
+
+            if (userNumberInput == 1){
+                playAgain = true;
+                dealer.getDealersHand().clear();
+                player.getPlayersHand().clear();
+
+
+            } else if (userNumberInput == 2){
+                playAgain = false;
+            }else {
+                System.out.println("Make sure to enter a number: ");
+                playAgain = true;
+            }
+
+        } while (playAgain);
     }
 
 }

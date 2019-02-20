@@ -56,7 +56,7 @@ public class BankAndScoreKeeper {
 
         playerBank =+ userInput;
         return playerBank;
-
+//Todo figure out why a infinite loop happened
     }
 
     public void printPlayerBankAmount(){
