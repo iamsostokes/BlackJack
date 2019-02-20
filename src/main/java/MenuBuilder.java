@@ -17,6 +17,10 @@ public class MenuBuilder {
         System.out.println("Thanks for playing!");
     }
 
+    public void hitOrStand(){
+        System.out.println("Would you like to hit stand?");
+    }
+
 
 
 }
