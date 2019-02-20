@@ -38,9 +38,21 @@ public class BlackJackDemo {
                 System.out.println("The max value is: "  + dealer.compareHandTotalsReturnMax(player));
 
 
+                if (dealer.calculateCardValueInDealerHand() < 21 && player.calculateCardValueInPlayerHand() < 21){
+                    //Todo hit me method
+                } else if(dealer.calculateCardValueInDealerHand() == 21 || player.calculateCardValueInPlayerHand() ==21 ){
+                    //Todo Start new round and declare winner and add to counter
+                } else if(dealer.calculateCardValueInDealerHand() == 21 && player.calculateCardValueInPlayerHand() == 21){
+                    //Todo declare a tie
+                } else {
+                    System.out.println("There is a issue");
+                }
 
-//                menu.hitOrStand();
-//                userTextInput = textScanner.nextLine();
+
+                menu.hitOrStand();
+                userNumberInput = numberScanner.nextInt();
+                if (userNumberInput == 1)
+
 
 
                 break;

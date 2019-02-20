@@ -18,7 +18,9 @@ public class MenuBuilder {
     }
 
     public void hitOrStand(){
-        System.out.println("Would you like to hit stand?");
+        System.out.println("Would you like to hit stand?\n" +
+                "Press [1] for Hit\n" +
+                "Press [2] for Stand");
     }
 
 
