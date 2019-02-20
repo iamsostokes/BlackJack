@@ -13,6 +13,7 @@ public class BlackJackDemo {
         Scanner numberScanner = new Scanner(System.in);
         String userTextInput;
         int userNumberInput;
+        boolean hitMe = false;
 
         menu.showMainMenu();
         userNumberInput = numberScanner.nextInt();
@@ -28,32 +29,42 @@ public class BlackJackDemo {
                 dealer.addToDealerHand();
                 dealer.printDealerHand();
                 dealer.calculateCardValueInDealerHand();
-                System.out.println("The dealer hand total is " + dealer.calculateCardValueInDealerHand()+ "\n");
+                System.out.println("The dealer hand total is " + dealer.calculateCardValueInDealerHand() + "\n");
 
                 dealer.addToPlayersHand(player);
                 dealer.addToPlayersHand(player);
                 player.printPlayersHand();
-                System.out.println("Your hand total is " + player.calculateCardValueInPlayerHand()+ "\n");
+                System.out.println("Your hand total is " + player.calculateCardValueInPlayerHand() + "\n");
 
-                System.out.println("The max value is: "  + dealer.compareHandTotalsReturnMax(player));
-
-
-                if (dealer.calculateCardValueInDealerHand() < 21 && player.calculateCardValueInPlayerHand() < 21){
-                    //Todo hit me method
-                } else if(dealer.calculateCardValueInDealerHand() == 21 || player.calculateCardValueInPlayerHand() ==21 ){
-                    //Todo Start new round and declare winner and add to counter
-                } else if(dealer.calculateCardValueInDealerHand() == 21 && player.calculateCardValueInPlayerHand() == 21){
-                    //Todo declare a tie
-                } else {
-                    System.out.println("There is a issue");
-                }
+                System.out.println("The max value is: " + dealer.compareHandTotalsReturnMax(player));
 
 
-                menu.hitOrStand();
-                userNumberInput = numberScanner.nextInt();
-                if (userNumberInput == 1)
+                do {
+                    if (dealer.calculateCardValueInDealerHand() < 21 && player.calculateCardValueInPlayerHand() < 21) {
+                        menu.hitOrStand();
+                        userNumberInput = numberScanner.nextInt();
+
+                        if (userNumberInput == 1) {
+                            dealer.hitMePlayer(player);
+                            if(player.calculateCardValueInPlayerHand() > 21){
+                                System.out.println("Busted!");
+                                hitMe = false;
+                            } else {
+                                hitMe = true;
+                            }
+
+                        }
+//                } else if(dealer.calculateCardValueInDealerHand() == 21 || player.calculateCardValueInPlayerHand() ==21 ){
+//                    //Todo Start new round and declare winner and add to counter
+//                } else if(dealer.calculateCardValueInDealerHand() == 21 && player.calculateCardValueInPlayerHand() == 21){
+//                    //Todo declare a tie
+//                } else {
+//                    System.out.println("There is a issue");
+//                }
 
 
+                    }
+                } while (hitMe);
 
                 break;
 

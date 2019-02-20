@@ -45,13 +45,13 @@ public class Card {
             card = 10;
 
         } else if (rank.equalsIgnoreCase("jack")) {
-            card = 11;
+            card = 10;
 
         } else if (rank.equalsIgnoreCase("queen")) {
-            card = 12;
+            card = 10;
 
         } else if (rank.equalsIgnoreCase("king")) {
-            card = 13;
+            card = 10;
 
         }
         return card;

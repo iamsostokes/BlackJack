@@ -43,6 +43,14 @@ public class Dealer {
 
     }
 
+    public void hitMePlayer(Player player){
+        addToPlayersHand(player);
+        player.printPlayersHand();
+        System.out.println("Your total is now " + player.calculateCardValueInPlayerHand());
+        System.out.println("The Dealer total is " + calculateCardValueInDealerHand());
+
+    }
+
 
 
     public void printDealerHand() {
