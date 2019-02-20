@@ -36,8 +36,6 @@ public class BlackJackDemo {
                 player.printPlayersHand();
                 System.out.println("Your hand total is " + player.calculateCardValueInPlayerHand() + "\n");
 
-                System.out.println("The max value is: " + dealer.compareHandTotalsReturnMax(player));
-
 
                 do {
                     if (dealer.calculateCardValueInDealerHand() < 21 && player.calculateCardValueInPlayerHand() < 21) {
@@ -46,24 +44,14 @@ public class BlackJackDemo {
 
                         if (userNumberInput == 1) {
                             dealer.hitMePlayer(player);
-                            if(player.calculateCardValueInPlayerHand() > 21){
-                                System.out.println("Busted!");
-                                hitMe = false;
-                            } else {
-                                hitMe = true;
-                            }
+                            hitMe = false;
 
+                        } else {
+                            hitMe = true;
                         }
-//                } else if(dealer.calculateCardValueInDealerHand() == 21 || player.calculateCardValueInPlayerHand() ==21 ){
-//                    //Todo Start new round and declare winner and add to counter
-//                } else if(dealer.calculateCardValueInDealerHand() == 21 && player.calculateCardValueInPlayerHand() == 21){
-//                    //Todo declare a tie
-//                } else {
-//                    System.out.println("There is a issue");
-//                }
-
 
                     }
+
                 } while (hitMe);
 
                 break;
