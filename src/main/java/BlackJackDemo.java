@@ -27,10 +27,15 @@ public class BlackJackDemo {
 
                 dealer.addToDealerHand();
                 dealer.printDealerHand();
+                dealer.calculateCardValueInDealerHand();
+
+
+                System.out.println("The dealer hand total is " + dealer.getDealerSum());
 
                 dealer.addToPlayersHand(player);
                 dealer.addToPlayersHand(player);
                 player.printPlayersHand();
+                System.out.println("Your hand total is " + player.calculateCardValueInPlayerHand());
 
 
 

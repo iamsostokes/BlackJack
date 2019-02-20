@@ -4,6 +4,7 @@ import java.util.Collections;
 public class Dealer {
 
     private Deck deck = new Deck();
+    private int dealerSum;
 
     private ArrayList<Card> dealersHand = new ArrayList<>();
 
@@ -16,6 +17,20 @@ public class Dealer {
       player.addToPlayersHand(deck.getAndRemoveFirstCardFromDeck());
 
     }
+
+    public int calculateCardValueInDealerHand(){
+
+        for (int i = 0; i < dealersHand.size(); i++){
+            dealerSum += dealersHand.get(i).getWeight();
+
+
+        }
+        return dealerSum;
+
+
+    }
+
+
 
 
     public void printDealerHand() {
@@ -45,5 +60,11 @@ public class Dealer {
         this.dealersHand = dealersHand;
     }
 
+    public int getDealerSum() {
+        return dealerSum;
+    }
 
+    public void setDealerSum(int dealerSum) {
+        this.dealerSum = dealerSum;
+    }
 }

@@ -8,10 +8,10 @@ public class Card {
     public Card(String suit, String rank) {
         this.suit = suit;
         this.rank = rank;
-        this.weight = weightOfCard(rank);
+        this.weight = weightOfCard();
     }
 
-    public int weightOfCard(String rank) {
+    public int weightOfCard() {
         int card = 0;
 
         if (rank.equalsIgnoreCase("ace")) {
@@ -45,13 +45,13 @@ public class Card {
             card = 10;
 
         } else if (rank.equalsIgnoreCase("jack")) {
-            card = 11;
+            card = 10;
 
         } else if (rank.equalsIgnoreCase("queen")) {
-            card = 12;
+            card = 10;
 
         } else if (rank.equalsIgnoreCase("king")) {
-            card = 13;
+            card = 10;
 
         }
         return card;
