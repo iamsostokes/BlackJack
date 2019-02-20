@@ -47,9 +47,11 @@ public class BlackJackDemo {
                             if (userNumberInput == 1 && player.calculateCardValueInPlayerHand() < 21) {
                                 dealer.hitMePlayer(player);
                                 hitMe = true;
-                            } else {
+                            }
+                            if(userNumberInput == 2 || player.calculateCardValueInPlayerHand() >= 21){
                                hitMe = false;
                             }
+
 
                     } while (hitMe);
 
@@ -82,7 +84,6 @@ public class BlackJackDemo {
                 playAgain = true;
                 dealer.getDealersHand().clear();
                 player.getPlayersHand().clear();
-
 
             } else if (userNumberInput == 2){
                 playAgain = false;
