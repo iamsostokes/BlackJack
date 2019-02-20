@@ -33,9 +33,11 @@ public class Dealer {
         bothHandTotals.add(calculateCardValueInDealerHand());
         bothHandTotals.add(player.calculateCardValueInPlayerHand());
 
-//        for(Integer number: bothHandTotals){
-//            System.out.println("In the list" + number);
-//        }
+        if (calculateCardValueInDealerHand() > player.calculateCardValueInPlayerHand()){
+            System.out.println("Dealer hand is greater");
+        }else {
+            System.out.println("Your hand is greater");
+        }
 
        return Collections.max(bothHandTotals);
 
